@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -45,6 +44,14 @@ body {
 
 <section class="box">
 	<div class="container">
+        <div class="input-group input-group-lg">
+			<span class="input-group-addon" id="basic-addon3">Quiz Id</span>
+			<input type="text" class="form-control quizId" placeholder="5d6fdef56a2039004445f7d0">
+			<span class="input-group-btn">
+				<button class="btn btn-secondary" onclick="userId();" type="button">Узнать userId</button>
+			</span>
+		</div>
+		<div class="userId"></div>
 		<div class="input-group input-group-lg">
 			<span class="input-group-addon" id="basic-addon3">Домен</span>
 			<input type="text" class="form-control domein" placeholder="website.com">
@@ -74,9 +81,19 @@ function kvizID() {
 	}
 });
 }
+function userId() {
+	let quizId = $(".quizId").val();
+	console.log(quizId);
+	$.ajax({
+     url: "https://proxy3-api.marquiz.ru/v1/Quizzes/" + quizId,
+     dataType: 'json', 
+     success: function(json){		 
+		$(".userId").html("<div class=\"alert alert-info\" role=\"alert\">" + json.userId + "</div>");
+	}
+});
+}
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </body>
 </html>
-

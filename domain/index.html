@@ -47,17 +47,17 @@ body {
 	<div class="container">
 		<div class="input-group input-group-lg">
 			<span class="input-group-addon" id="basic-addon3">Домен</span>
-			<input type="text" class="form-control domein" placeholder="website.com">
+			<input id="domain" type="text" class="form-control domein" placeholder="website.com">
 			<span class="input-group-btn">
-				<button class="btn btn-secondary" onclick="kvizID();" type="button">Узнать ID квиза</button>
+				<button class="btn btn-secondary" id="btn_domain" onclick="kvizID();" type="button">Узнать ID квиза</button>
 			</span>
 		</div>
 		<div class="kvizID"></div>
         <div class="input-group input-group-lg">
 			<span class="input-group-addon" id="basic-addon3">Quiz Id</span>
-			<input type="text" class="form-control quizId" placeholder="5d6fdef56a2039004445f7d0">
+			<input id="quiz_id" type="text" class="form-control quizId" placeholder="5d6fdef56a2039004445f7d0">
 			<span class="input-group-btn">
-				<button class="btn btn-secondary" onclick="userId();" type="button">Узнать userId</button>
+				<button class="btn btn-secondary" id="btn_quiz_id" onclick="userId();" type="button">Узнать userId</button>
 			</span>
 		</div>
 		<div class="userId"></div>
@@ -93,6 +93,21 @@ function userId() {
 	}
 });
 }
+</script>
+
+
+<!-- Для работы кнопок по нажатию клавиши Enter -->
+<script>
+$("#domain").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#btn_domain").click();
+    }
+});
+$("#quiz_id").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#btn_quiz_id").click();
+    }
+})
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
